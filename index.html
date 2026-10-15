@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Money Together — Year 7 Financial Literacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..900&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --paper:#ecdfc0;
+    --paper-2:#fbf6e9;
+    --paper-3:#ddcba2;
+    --line:#7c6a44;
+    --ink:#201a0d;
+    --ink-mute:#5b5238;
+    --brand-navy:#002066;
+    --brand-navy-deep:#00112e;
+    --brand-navy-line:#00112e;
+    --navy:#002066;
+    --navy-soft:#d1e6f6;
+    --mod-a:#8a5a2c;   /* Whose Money, Whose Call? */
+    --mod-b:#1d5c9c;   /* Weigh It Up */
+    --mod-c:#166a4f;   /* Budgets & Priorities */
+    --mod-d:#59327b;   /* Sharing & Pooling */
+    --mod-e:#a8590c;   /* Built to Last */
+    --mod-w:#226477;   /* Spread the Word */
+    --gold:#c5a059;
+    --gold-text:#8b6508;
+    --gold-soft:#f5ead2;
+    --wine:#8c2415;
+    --wine-soft:#f2d7ce;
+    --good:#0f6b3f;
+    --good-soft:#cdeadb;
+    --shadow:rgba(27,20,10,.24);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#0d1510; --paper-2:#182619; --paper-3:#243423;
+      --line:#63765c; --ink:#f4ecd6; --ink-mute:#adbca4;
+      --navy:#8ec2ec; --navy-soft:#1b2c38;
+      --brand-navy:#123a8f; --brand-navy-deep:#05173d; --brand-navy-line:#3d6fe0;
+      --mod-a:#d3a672; --mod-b:#7fb8ee; --mod-c:#6adfb3; --mod-d:#bf98e1; --mod-e:#f0b860; --mod-w:#90c6d5;
+      --gold:#d4b378; --gold-text:#e8c98a; --gold-soft:#2c2410;
+      --wine:#ec9280; --wine-soft:#331d16; --good:#8be9b8; --good-soft:#123322;
+      --shadow:rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0d1510; --paper-2:#182619; --paper-3:#243423;
+    --line:#63765c; --ink:#f4ecd6; --ink-mute:#adbca4;
+    --navy:#8ec2ec; --navy-soft:#1b2c38;
+    --brand-navy:#123a8f; --brand-navy-deep:#05173d; --brand-navy-line:#3d6fe0;
+    --mod-a:#d3a672; --mod-b:#7fb8ee; --mod-c:#6adfb3; --mod-d:#bf98e1; --mod-e:#f0b860; --mod-w:#90c6d5;
+    --gold:#d4b378; --gold-text:#e8c98a; --gold-soft:#2c2410;
+    --wine:#ec9280; --wine-soft:#331d16; --good:#8be9b8; --good-soft:#123322;
+    --shadow:rgba(0,0,0,.5);
+  }
+  *{box-sizing:border-box;}
+  html{color-scheme:light dark;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:'Manrope',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+    padding:20px 16px 48px; display:flex; justify-content:center;
+  }
+  .num{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;}
+  h1,h2,h3,.display{font-family:'Fraunces',Georgia,serif;font-weight:800;text-wrap:balance;}
+  .wrap{width:100%;max-width:900px;display:flex;flex-direction:column;gap:14px;}
+  button{font-family:inherit;}
+  button:focus-visible,[tabindex]:focus-visible,input:focus-visible,textarea:focus-visible{
+    outline:3px solid var(--navy);outline-offset:2px;
+  }
+  @media (prefers-reduced-motion:reduce){ *{animation:none !important;transition:none !important;} }
+
+  .masthead{
+    border:1.5px solid var(--brand-navy-line);border-radius:6px;
+    background:linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-deep) 100%);
+    box-shadow:0 2px 0 var(--shadow); padding:14px 18px;
+    display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  }
+  .masthead .brandmark{display:flex;align-items:center;gap:12px;}
+  .coin{height:44px;width:44px;flex:none;display:block;}
+  .masthead h1{font-size:20px;margin:0;letter-spacing:.2px;color:#ffffff;}
+  .masthead .kicker{font-size:11px;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:2px;}
+  .masthead .sub{font-size:12px;color:rgba(255,255,255,.7);margin-top:2px;}
+  .masthead .toolbar{display:flex;gap:6px;flex:none;}
+  .icon-btn{
+    background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.3);border-radius:5px;
+    color:#fff;font-size:13px;padding:7px 9px;cursor:pointer;line-height:1;
+  }
+  .icon-btn:hover{background:rgba(255,255,255,.18);}
+
+  .hud{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;}
+  @media (max-width:640px){ .hud{grid-template-columns:repeat(2,1fr);} }
+  .stamp{border:1.5px solid rgba(0,32,102,.12);border-radius:5px;background:var(--navy-soft);padding:7px 10px;display:flex;flex-direction:column;gap:2px;}
+  .stamp .lbl{font-size:9.5px;letter-spacing:1.1px;text-transform:uppercase;color:var(--navy);opacity:.75;font-weight:700;}
+  .stamp .val{font-size:16.5px;font-weight:700;color:var(--ink);}
+  .meterbar{width:100%;height:6px;border-radius:4px;background:var(--paper-3);overflow:hidden;margin-top:3px;}
+  .meterbar>i{display:block;height:100%;background:linear-gradient(90deg,var(--navy),var(--brand-navy-line));}
+  .stamp.stamp-alert{border-color:var(--wine);background:var(--wine-soft);}
+  .stamp.stamp-alert .lbl{color:var(--wine);opacity:1;}
+  .stamp.stamp-alert .meterbar>i{background:var(--wine);}
+  .stamp-alert-note{font-size:9.5px;color:var(--wine);font-weight:700;margin-top:3px;}
+
+  .review-banner{border:1.5px solid var(--gold);background:var(--gold-soft);color:var(--gold-text);border-radius:5px;padding:9px 12px;font-size:12.5px;line-height:1.5;font-weight:600;}
+
+  .glossary-panel{border:2px solid var(--line);border-radius:6px;background:var(--paper-2);box-shadow:0 2px 0 var(--shadow);padding:14px 16px;display:flex;flex-direction:column;gap:10px;}
+  .glossary-panel[hidden]{display:none;}
+  .glossary-panel h3{margin:0;font-size:14.5px;}
+  .glossary-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:9px;}
+  .glossary-card{border:1.5px solid var(--paper-3);border-radius:5px;background:var(--paper);padding:9px 11px;}
+  .glossary-card .gc-term{font-weight:700;font-size:12.5px;color:var(--navy);margin-bottom:3px;}
+  .glossary-card .gc-def{font-size:12px;color:var(--ink-mute);line-height:1.5;}
+
+  .dream-echo{border-left:4px solid var(--gold);background:var(--gold-soft);color:var(--ink);border-radius:5px;padding:10px 13px;font-size:12.5px;line-height:1.6;text-align:left;margin:0 auto 4px;max-width:480px;}
+  .dream-echo b{color:var(--gold-text);}
+
+  .chart-wrap{margin-top:6px;padding:12px 14px 10px;border-radius:6px;background:var(--paper);border:1px solid var(--paper-3);}
+  .chart-wrap .chart-title{font-size:11.5px;font-weight:700;color:var(--ink-mute);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
+  .chart-wrap .chart-caption{font-size:12px;color:var(--ink-mute);line-height:1.5;margin-top:8px;}
+  .chart-bar-row{margin-bottom:9px;}
+  .chart-bar-row:last-of-type{margin-bottom:0;}
+  .chart-bar-label{font-size:12px;color:var(--ink);margin-bottom:4px;}
+  .chart-bar-track{width:100%;background:var(--paper-3);border-radius:4px;overflow:hidden;height:26px;}
+  .chart-bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;justify-content:flex-end;padding:0 9px;box-sizing:border-box;min-width:fit-content;}
+  .chart-bar-fill span{font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:700;white-space:nowrap;}
+
+  .curveball-card{border-top:5px solid var(--gold);text-align:center;}
+  .curveball-card .cb-icon{font-size:34px;}
+  .curveball-card .cb-kicker{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-text);font-weight:800;margin-top:6px;}
+
+  .card{border:2px solid var(--line);border-radius:6px;background:var(--paper-2);box-shadow:0 2px 0 var(--shadow);padding:16px;display:flex;flex-direction:column;gap:12px;}
+
+  /* ---- Intro ---- */
+  .intro-modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-top:4px;}
+  @media (max-width:640px){ .intro-modules{grid-template-columns:1fr 1fr;} }
+  .intro-mod{border:1.5px dashed var(--line);border-radius:6px;padding:9px 10px;font-size:12px;color:var(--ink-mute);text-align:center;}
+  .intro-mod .im-icon{font-size:20px;}
+  .intro-mod b{display:block;color:var(--ink);font-size:12.5px;margin-top:3px;}
+  .field{display:flex;flex-direction:column;gap:5px;margin:6px 0;}
+  .field label{font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--ink-mute);font-weight:700;}
+  .field input[type=text]{background:var(--paper);border:1.5px solid var(--line);border-radius:5px;padding:9px 10px;font-size:14.5px;color:var(--ink);font-family:inherit;}
+
+  .btn{font-weight:700;font-size:14px;letter-spacing:.2px;background:var(--brand-navy);color:#fff;border:1.5px solid var(--brand-navy-line);border-radius:5px;padding:10px 16px;cursor:pointer;}
+  .btn:hover{filter:brightness(1.08);}
+  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line);}
+  .btn.ghost:hover{border-color:var(--navy);color:var(--navy);}
+  .btn.small{padding:7px 11px;font-size:12.5px;}
+  .btn:disabled{opacity:.4;cursor:not-allowed;filter:none;}
+
+  /* ---- Hub / map ---- */
+  .hub-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  @media (max-width:640px){ .hub-grid{grid-template-columns:1fr;} }
+  .mod-card{border:2px solid var(--mc,var(--line));border-radius:7px;background:var(--paper);padding:13px 14px;display:flex;flex-direction:column;gap:7px;text-align:left;cursor:pointer;color:var(--ink);}
+  .mod-card:hover{box-shadow:0 0 0 3px color-mix(in srgb, var(--mc,var(--line)) 25%, transparent);}
+  .mod-card .mc-top{display:flex;align-items:center;gap:9px;}
+  .mod-card .mc-icon{font-size:24px;flex:none;}
+  .mod-card h3{margin:0;font-size:15px;color:var(--mc,var(--ink));}
+  .mod-card p{margin:0;font-size:12px;color:var(--ink-mute);line-height:1.5;}
+  .mod-card .mc-progress{margin-top:2px;font-size:11px;color:var(--ink-mute);display:flex;align-items:center;gap:6px;}
+  .mod-card .mc-dots{display:flex;gap:4px;}
+  .mod-card .mc-dot{width:8px;height:8px;border-radius:50%;background:var(--paper-3);border:1.5px solid var(--mc,var(--line));}
+  .mod-card .mc-dot.done{background:var(--mc,var(--line));}
+  .mod-card.locked{opacity:.55;cursor:not-allowed;}
+  .mod-card.locked:hover{box-shadow:none;}
+  .mod-card.complete{background:color-mix(in srgb, var(--mc,var(--line)) 10%, var(--paper));}
+  .lock-note{font-size:11px;color:var(--ink-mute);font-style:italic;}
+
+  .overall-bar{font-size:12px;color:var(--ink-mute);display:flex;align-items:center;gap:8px;}
+  .overall-bar .meterbar{flex:1;}
+
+  /* ---- Task screen ---- */
+  .task-card{border-top:5px solid var(--mc,var(--navy));}
+  .task-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+  .task-head .th-left{display:flex;gap:10px;align-items:center;}
+  .task-head .th-icon{font-size:26px;flex:none;}
+  .task-head h2{margin:0;font-size:16.5px;color:var(--ink);}
+  .task-head .th-mod{font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--mc,var(--navy));font-weight:800;}
+  .pill{font-size:10.5px;font-weight:700;color:var(--ink-mute);background:var(--paper-3);border-radius:999px;padding:4px 9px;flex:none;}
+  .prompt{font-size:14.5px;line-height:1.65;}
+
+  .opt-list{display:flex;flex-direction:column;gap:8px;margin-top:4px;}
+  .opt-btn{text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:5px;color:var(--ink);padding:10px 13px;font-size:14px;cursor:pointer;font-family:inherit;}
+  .opt-btn:hover{border-color:var(--navy);}
+  .opt-btn .opt-detail{display:block;font-size:12px;color:var(--ink-mute);margin-top:3px;line-height:1.5;}
+  .opt-btn.chosen-good{border-color:var(--good);background:var(--good-soft);}
+  .opt-btn.chosen-bad{border-color:var(--wine);background:var(--wine-soft);}
+  .opt-btn.chosen{border-color:var(--navy);background:var(--navy-soft);}
+  .opt-btn:disabled{cursor:default;}
+
+  .feedback{margin-top:4px;padding:11px 13px;border-radius:5px;border-left:4px solid var(--good);background:var(--good-soft);font-size:13.5px;line-height:1.6;}
+  .feedback.bad{border-color:var(--wine);background:var(--wine-soft);}
+  .feedback.info{border-color:var(--navy);background:var(--navy-soft);}
+  .feedback b{display:block;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+  .feedback.bad b{color:var(--wine);}
+  .feedback:not(.bad):not(.info) b{color:var(--good);}
+  .feedback.info b{color:var(--navy);}
+
+  .match-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:2px;}
+  .match-col-title{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--mc,var(--navy));margin-bottom:6px;font-weight:800;}
+  .match-item{display:block;width:100%;text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:5px;color:var(--ink);padding:8px 10px;font-size:12.5px;cursor:pointer;margin-bottom:6px;font-family:inherit;line-height:1.4;}
+  .match-item:hover{border-color:var(--navy);}
+  .match-item.selected{border-color:var(--navy);box-shadow:0 0 0 2px var(--navy) inset;}
+  .match-item.done{border-color:var(--good);background:var(--good-soft);cursor:default;opacity:.85;}
+  .match-item.wrongflash{border-color:var(--wine);background:var(--wine-soft);}
+  .match-item:disabled{cursor:default;}
+  .match-score{margin-top:4px;font-size:12px;color:var(--mc,var(--navy));font-weight:700;}
+
+  .chip-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px;}
+  .chip{background:var(--paper);border:1.5px solid var(--line);border-radius:999px;color:var(--ink);padding:7px 13px;font-size:12.5px;cursor:pointer;font-family:inherit;line-height:1.3;}
+  .chip:hover{border-color:var(--navy);}
+  .chip.selected{border-color:var(--navy);background:var(--navy-soft);color:var(--navy);font-weight:700;}
+
+  .alloc-row{display:flex;align-items:center;gap:10px;margin-bottom:9px;}
+  .alloc-row label{flex:0 0 170px;font-size:12.5px;color:var(--ink);}
+  .alloc-row input[type=range]{flex:1;accent-color:var(--navy);}
+  .alloc-row .alloc-val{flex:0 0 42px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:13.5px;}
+  .alloc-total{margin-top:6px;padding:9px 11px;border-radius:5px;background:var(--paper);border:1px solid var(--paper-3);font-size:13.5px;display:flex;justify-content:space-between;}
+  .alloc-total.bad{color:var(--wine);border-color:var(--wine);}
+  .alloc-total.ok{color:var(--good);border-color:var(--good);}
+
+  .sort-item{border:1.5px solid var(--line);border-radius:6px;background:var(--paper);padding:10px 12px;margin-bottom:9px;}
+  .sort-item .si-text{font-size:13.5px;margin-bottom:8px;}
+  .sort-item .si-btns{display:flex;gap:8px;flex-wrap:wrap;}
+  .sort-item .si-btns button{flex:1;min-width:150px;}
+  .sort-item.done{border-color:var(--good);}
+  .sort-item .si-note{margin-top:8px;}
+
+  .rank-item{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;text-align:left;border:1.5px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);padding:9px 12px;margin-bottom:8px;font-size:13.5px;cursor:pointer;font-family:inherit;line-height:1.4;}
+  .rank-item:hover{border-color:var(--navy);}
+  .rank-item.picked{border-color:var(--navy);background:var(--navy-soft);}
+  .rank-item.picked.unfunded{border-color:var(--wine);background:var(--wine-soft);opacity:.85;}
+  .rank-item.locked{cursor:default;}
+  .rank-item .ri-left{display:flex;align-items:center;gap:9px;}
+  .rank-item .ri-order{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--mc,var(--navy));color:#fff;font-size:11px;font-weight:700;flex:none;}
+  .rank-item .ri-cost{flex:none;}
+  .rank-item .ri-note{display:block;font-size:11.5px;color:var(--wine);margin-top:2px;}
+  .rank-total{margin-top:2px;padding:9px 11px;border-radius:5px;background:var(--paper);border:1px solid var(--paper-3);font-size:13.5px;display:flex;justify-content:space-between;}
+
+  textarea.compose-box{width:100%;min-height:110px;background:var(--paper);border:1.5px solid var(--line);border-radius:5px;padding:10px 11px;font-size:14px;color:var(--ink);font-family:inherit;line-height:1.55;resize:vertical;}
+  .wordcount{font-size:11.5px;color:var(--ink-mute);margin-top:4px;}
+  .examples{margin-top:4px;padding:11px 13px;border-radius:5px;background:var(--gold-soft);border-left:4px solid var(--gold);font-size:13px;line-height:1.6;}
+  .examples b{display:block;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--gold-text);margin-bottom:5px;}
+  .examples ul{margin:0;padding-left:18px;}
+
+  .task-foot{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-top:2px;}
+
+  .transition-card{text-align:center;padding:26px 18px;}
+  .transition-card .tc-icon{font-size:44px;}
+  .transition-card h2{margin:10px 0 4px;}
+  .transition-card p{color:var(--ink-mute);font-size:13.5px;line-height:1.6;max-width:440px;margin:0 auto 14px;}
+
+  .badge-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:6px 0;}
+  .badge-chip{border:1.5px solid var(--gold);background:var(--gold-soft);color:var(--gold-text);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px;}
+
+  /* ---- Certificate ---- */
+  .cert-wrap{border:3px double var(--brand-navy);border-radius:6px;background:var(--paper-2);padding:28px 24px;text-align:center;}
+  .cert-wrap .cert-kicker{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-text);font-weight:800;}
+  .cert-wrap h2{margin:6px 0 2px;font-size:23px;}
+  .cert-wrap .cert-name{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--navy);margin:10px 0;border-bottom:1.5px solid var(--paper-3);display:inline-block;padding:0 10px 6px;min-width:220px;}
+  .cert-wrap .cert-sub{font-size:12.5px;color:var(--ink-mute);line-height:1.7;max-width:480px;margin:6px auto 14px;}
+  .cert-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:420px;margin:0 auto 14px;}
+  .cert-stats .cell{border:1px solid var(--paper-3);border-radius:5px;background:var(--paper);padding:8px 6px;}
+  .cert-stats .cell .lbl{font-size:9.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--ink-mute);}
+  .cert-stats .cell .val{font-family:'IBM Plex Mono',monospace;font-size:15.5px;font-weight:700;margin-top:2px;}
+  .cert-foot{font-size:11px;color:var(--ink-mute);margin-top:14px;letter-spacing:.3px;}
+
+  .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,10px);background:var(--ink);color:var(--paper);border-radius:6px;padding:9px 16px;font-size:13.5px;opacity:0;transition:opacity .25s ease, transform .25s ease;pointer-events:none;z-index:60;box-shadow:0 6px 18px var(--shadow);max-width:90vw;text-align:center;}
+  .toast.show{opacity:1;transform:translate(-50%,0);}
+
+  @media print{
+    body *{visibility:hidden;}
+    #cert-print, #cert-print *{visibility:visible;}
+    #cert-print{position:absolute;top:0;left:0;width:100%;}
+    .no-print{display:none !important;}
+  }
+</style>
+
+<div class="wrap">
+  <div class="masthead">
+    <div class="brandmark">
+      <svg class="coin" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="#c5a059" stroke="#8b6508" stroke-width="2"/><circle cx="22" cy="22" r="14.5" fill="none" stroke="#8b6508" stroke-width="1.5" stroke-dasharray="2 2.5"/><text x="22" y="28.5" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="800" font-size="18" fill="#002066">$</text></svg>
+      <div>
+        <div class="kicker">Year 7 · Financial Literacy</div>
+        <h1>Money Together</h1>
+        <div class="sub">How families, hapū and iwi, community groups and businesses make money decisions</div>
+      </div>
+    </div>
+    <div class="toolbar">
+      <button class="icon-btn" id="glossary-btn" title="Look up a term" aria-label="Open glossary">📖 Glossary</button>
+      <button class="icon-btn" id="theme-btn" title="Switch light/dark" aria-label="Switch light or dark theme">◐</button>
+      <button class="icon-btn" id="restart-btn" title="Start over">↺ Restart</button>
+    </div>
+  </div>
+
+  <div class="glossary-panel" id="glossary-panel" hidden></div>
+
+  <div class="hud" id="hud"></div>
+
+  <div id="app"></div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* =========================================================
+   DATA
+========================================================= */
+var MODULES = [
+  { id:'A', label:'Whose Money, Whose Call?', icon:'👪', color:'var(--mod-a)', badge:'Group Decisions',
+    blurb:'Family groups, hapū and iwi, community organisations and businesses — every group has its own priorities and values.' },
+  { id:'B', label:'Weigh It Up', icon:'⚖️', color:'var(--mod-b)', badge:'Informed Chooser',
+    blurb:'Trade-offs, and how to tell safe, relevant and impartial information from a sales pitch.' },
+  { id:'C', label:'Budgets & Priorities', icon:'📊', color:'var(--mod-c)', badge:'Budget Builder',
+    blurb:'What a budget is for, ranking priorities, and fully costing a school trip.' },
+  { id:'D', label:'Sharing & Pooling', icon:'🤝', color:'var(--mod-d)', badge:'Resource Sharer',
+    blurb:'Why people pool money and resources, and how shared living arrangements work.' },
+  { id:'E', label:'Built to Last', icon:'🌱', color:'var(--mod-e)', badge:'Future-Ready',
+    blurb:'Financial sustainability — planning for today’s needs and tomorrow’s changes.' },
+  { id:'W', label:'Spread the Word', icon:'📣', color:'var(--mod-w)', badge:'Money Messenger',
+    blurb:'Put it together and help someone else understand how groups make financial decisions.', requires:['A','B','C','D','E'] }
+];
+
+var TASKS = {
+
+  A:[
+    { id:'a1', kind:'match', icon:'👪', title:'Who’s deciding?',
+      prompt:'Groups that need to make financial decisions come in all shapes and sizes. Match each group to what tends to shape its choices.',
+      pairs:[
+        { term:'A family / whānau group', def:'Often prioritises the everyday needs of everyone in the household — like food, power and rent — over any one person’s wants.' },
+        { term:'A hapū or iwi', def:'Makes decisions that reflect the priorities and values of the whole hapū or iwi, often thinking about future generations too.' },
+        { term:'A community organisation (e.g. a sports club or marae committee)', def:'Balances what its members want with what the group can actually afford, using fees, grants or fundraising.' },
+        { term:'A small business', def:'Has to earn enough from sales to cover its costs and keep operating, while trying to serve its customers well.' },
+        { term:'A large business', def:'Makes decisions that affect many staff, shareholders and customers, usually backed by bigger budgets and more research.' }
+      ],
+      afterNote:'Every kind of group — from a household to an iwi to a big company — has to make financial decisions. Like individuals, groups have their own priorities and collective values, and these shape what they choose to spend money on.',
+      reward:{fund:8,sustain:4} },
+
+    { id:'a2', kind:'decision', icon:'🎉', title:'Hākari or nest egg?',
+      prompt:'A marae committee has $2,000 left over this year. Some members want to spend it all on a big end-of-year hākari; others want to save it in case the wharenui roof ever needs repairs.',
+      options:[
+        { label:'Split it — spend some on the hākari, and set some aside for future repairs', detail:'Balances celebrating together now with being ready for the future.',
+          effect:{fund:0,sustain:8}, kind:'good',
+          feedback:'Good thinking. Groups often need to balance current needs — like gathering and celebrating together — with future ones, like an unexpected repair bill. That balance is part of financial sustainability.' },
+        { label:'Spend it all on the hākari — the roof can be dealt with later', detail:'Feels great now, but leaves nothing set aside.',
+          effect:{fund:0,sustain:-6}, kind:'bad',
+          feedback:'A big celebration matters to the community, but spending everything now leaves no buffer if the roof — or something else — needs fixing sooner than expected.' },
+        { label:'Save all of it and skip the hākari this year', detail:'Very cautious, but ignores what matters to people now.',
+          effect:{fund:0,sustain:2}, kind:'info',
+          feedback:'Being careful with money matters, but a group’s financial decisions should also reflect its values and priorities — for many hapū and iwi, gathering together is a priority in itself, not just an expense.' }
+      ],
+      afterNote:'Being informed means weighing up benefits and consequences — a hākari brings people together now, while savings protect against problems later. There’s rarely one “right” answer, only trade-offs.' },
+
+    { id:'a3', kind:'mcq', icon:'⚽', title:'Uniforms or the heater?',
+      prompt:'Work through both questions about this scenario.',
+      questions:[
+        { q:'A community rugby club has $500 to spend this month. New uniforms cost $500. A broken clubroom heater also needs fixing, and that’s $500 too. What’s true about this situation?',
+          options:[
+            { text:'The club can’t afford both, so it has to make a trade-off.', correct:true,
+              feedback:'Right. Groups, just like individuals, can’t afford everything — choosing one thing usually means giving something else up, at least for now.' },
+            { text:'The club should just borrow more money so it doesn’t have to choose.', correct:false,
+              feedback:'Borrowing is sometimes an option, but it comes with its own costs and risks — it doesn’t remove the need to weigh up priorities.' },
+            { text:'It doesn’t matter which one they pick, the outcome is the same either way.', correct:false,
+              feedback:'It does matter — uniforms and a working heater meet different needs, so the club has to think about what matters most to its members right now.' }
+          ] },
+        { q:'Which of these is most likely to influence which one the club picks?',
+          options:[
+            { text:'What the club’s members value and need most right now (e.g. is winter coming, are the old uniforms falling apart)', correct:true,
+              feedback:'Exactly — a group’s priorities and collective values are a big part of what shapes its financial decisions.' },
+            { text:'Whichever option has the shiniest advertisement', correct:false,
+              feedback:'Advertising can influence a decision, but it isn’t meant to be the deciding factor in a properly considered financial decision.' },
+            { text:'Whatever the loudest committee member wants, regardless of what others think', correct:false,
+              feedback:'A decision that affects the whole club usually works best when it reflects the group’s shared priorities, not just one person’s preference.' }
+          ] }
+      ],
+      afterNote:'Trade-offs like this come up for every kind of group. Being informed means weighing up the benefits and consequences of each option before deciding.',
+      reward:{fund:5,sustain:3} },
+
+    { id:'a4', kind:'reflect', icon:'🧩', title:'What counts as a group?',
+      prompt:'Which of these count as a “group” that might need to make financial decisions? Tap all that apply.',
+      chips:['A whānau sharing one household budget','A hapū or iwi trust','A school','A sports club','A dairy or corner shop','One person buying their own lunch','A city council','A big supermarket chain'],
+      note:'Family groups, hapū or iwi, community organisations, and small and large businesses all have to make financial decisions together — that covers whānau, iwi trusts, schools, sports clubs, dairies, councils and supermarket chains. Buying your own lunch is the odd one out here: that’s a decision for one person, not a group.',
+      reward:{fund:0,sustain:3} }
+  ],
+
+  B:[
+    { id:'b1', kind:'match', icon:'🔍', title:'Good information, or not?',
+      prompt:'Being informed depends on the quality of the information you use. Match each term to what it means.',
+      pairs:[
+        { term:'Safe information', def:'Protects your privacy and doesn’t put your (or your group’s) money at risk.' },
+        { term:'Relevant information', def:'Is suited to your group’s actual circumstances, values and perspectives.' },
+        { term:'Impartial information', def:'Is balanced and unbiased — it isn’t trying to sell you something to benefit someone else.' },
+        { term:'A trade-off', def:'Giving up one thing in order to have another, because a group can’t afford everything it wants.' }
+      ],
+      afterNote:'Good financial decisions rely on good information. Checking whether information is safe, relevant and impartial helps a group avoid being misled.',
+      reward:{fund:8,sustain:4} },
+
+    { id:'b2', kind:'sort', icon:'🧭', title:'Spotting good information',
+      prompt:'For each statement, decide if it’s true or false — then see a note on it.',
+      sortLabels:['True','False'],
+      items:[
+        { text:'An ad saying “buy now, prices going up tomorrow!” is a good source of impartial advice.', note:'False — ads are designed to sell something, so they’re rarely impartial. They’re a business’s own message, not neutral advice.' },
+        { text:'A community budgeting service that keeps your details private is an example of safe information.', note:'True — protecting privacy and not putting your money at risk is exactly what makes information safe to use.' },
+        { text:'Advice written for a big city council will always suit a small rural marae just as well.', note:'False — information needs to be relevant to your group’s own circumstances. What works for one kind of group might not fit another.' },
+        { text:'Taking time to compare a few different sources before deciding is part of being informed.', note:'True — researching your options, rather than acting on the first thing you hear, is one of the best ways to make an informed decision.' }
+      ],
+      afterNote:'Before trusting financial information, it’s worth asking: is it safe, is it relevant to us, and is it impartial?',
+      reward:{fund:5,sustain:4} },
+
+    { id:'b3', kind:'mcq', icon:'🎁', title:'Free merch, real decision',
+      prompt:'Work through both questions about this scenario.',
+      questions:[
+        { q:'A sports club is deciding which bank to use for its accounts. One bank’s sales rep offers the committee free merchandise if they sign up today. What should the committee do?',
+          options:[
+            { text:'Say thanks, but take time to compare it with other banks’ fees and services first.', correct:true,
+              feedback:'Good instinct — researching your options, rather than deciding on the spot because of a gift, is part of being an informed decision-maker.' },
+            { text:'Sign up straight away, since free merchandise is a bonus.', correct:false,
+              feedback:'Free gifts can be a way of influencing a decision quickly, before a group has had time to check whether the deal is actually the best one.' },
+            { text:'Ask the loudest committee member to decide by themselves.', correct:false,
+              feedback:'A financial decision that affects the whole club works best when it reflects the group’s shared priorities, not just one person’s choice.' }
+          ] },
+        { q:'Which of these is most likely to give impartial advice on comparing bank fees for community groups?',
+          options:[
+            { text:'An independent comparison from a community law or budgeting service.', correct:true,
+              feedback:'Right — a service that isn’t trying to sell you a product is more likely to give balanced, unbiased information.' },
+            { text:'An advertisement from the bank itself.', correct:false,
+              feedback:'An ad’s job is to sell that bank’s own product, so it’s unlikely to be a balanced comparison of all the options.' },
+            { text:'A flyer handed out by the sales rep who wants your business.', correct:false,
+              feedback:'Someone trying to win your group’s business has a reason to make their option look best — that’s not impartial information.' }
+          ] }
+      ],
+      afterNote:'Understanding what’s influencing a decision — like a free gift or a pushy sales pitch — helps a group step back and make a properly informed choice.',
+      reward:{fund:5,sustain:3} },
+
+    { id:'b4', kind:'decision', icon:'🛋️', title:'New gear for the common room',
+      prompt:'The student council has $300 to spend on new equipment for the common room. Two students suggest just buying whatever a friend’s older sibling recommends, without checking anywhere else.',
+      options:[
+        { label:'Take a bit of time to compare a few options and prices before deciding', detail:'Slower, but more likely to get good value.',
+          effect:{fund:0,sustain:8}, kind:'good',
+          feedback:'Good call — taking time to research your options is one of the things that make up being informed, alongside weighing up benefits and consequences, and understanding what’s influencing you.' },
+        { label:'Just go with the friend’s sibling’s recommendation', detail:'Quick, but based on one person’s opinion only.',
+          effect:{fund:0,sustain:-4}, kind:'bad',
+          feedback:'One recommendation isn’t the same as research — it might be a great option, but the council won’t know unless they compare it with others.' },
+        { label:'Buy the flashiest-looking option because it was advertised the most', detail:'Exciting, but the advertising might be doing the deciding.',
+          effect:{fund:0,sustain:-2}, kind:'info',
+          feedback:'Advertising is designed to influence you — noticing that is part of understanding what’s shaping a decision, rather than just going along with it.' }
+      ],
+      afterNote:'Being informed isn’t about being perfect — it’s about weighing things up, noticing what’s influencing you, and taking a bit of time to check your options.' }
+  ],
+
+  C:[
+    { id:'c1', kind:'mcq', icon:'📋', title:'What’s a budget for?',
+      prompt:'Work through both questions about budgets and financial planning.',
+      questions:[
+        { q:'What does a budget do for a group?',
+          options:[
+            { text:'It sets out how the group plans to spend its money within its income.', correct:true,
+              feedback:'Exactly — a budget is a plan that matches spending to what’s actually coming in.' },
+            { text:'It guarantees the group will never run out of money.', correct:false,
+              feedback:'A budget helps a group plan, but it can’t guarantee against surprises — that’s why financial sustainability also means being ready for changes and challenges.' },
+            { text:'It’s only useful for big businesses, not small community groups.', correct:false,
+              feedback:'Budgets help groups of every size — a family, a club, a marae committee or a large business can all use one to plan spending.' }
+          ] },
+        { q:'A school group is planning a budget for a trip. Which of these is part of good financial planning?',
+          options:[
+            { text:'Listing all the likely costs before deciding what to spend on extras.', correct:true,
+              feedback:'Right — financial planning means understanding your costs and income before making spending decisions, not after.' },
+            { text:'Deciding on extras first and hoping the essentials fit in afterwards.', correct:false,
+              feedback:'That approach risks running short on things the group actually needs, like transport or food.' },
+            { text:'Not writing anything down, since everyone will remember the plan anyway.', correct:false,
+              feedback:'A budget works best when it’s actually set out clearly, so the group can check its spending against the plan as it goes.' }
+          ] }
+      ],
+      afterNote:'Financial planning — including budgets — helps groups, businesses and organisations make informed financial decisions.',
+      reward:{fund:5,sustain:3} },
+
+    { id:'c2', kind:'allocate', icon:'🚌', title:'Costing the school trip',
+      prompt:'Your class has a $1,200 budget for a two-day trip. Decide what percentage of the budget goes to each category — it has to add up to exactly 100%.',
+      categories:[
+        { id:'transport', label:'Transport', def:30 },
+        { id:'accommodation', label:'Accommodation', def:30 },
+        { id:'food', label:'Food', def:25 },
+        { id:'activities', label:'Activities', def:10 },
+        { id:'contingency', label:'Contingency (just in case)', def:5 }
+      ],
+      essentialIds:['transport','accommodation','food'], minEssential:60,
+      contingencyId:'contingency', minContingency:5,
+      goodReward:{fund:15,sustain:6}, okReward:{fund:5,sustain:2},
+      goodLabel:'A fully costed trip',
+      goodFeedback:'That covers the essentials — transport, accommodation and food — and still leaves a bit of contingency for anything unexpected, like a delayed bus or a last-minute price rise. That’s exactly how groups fully cost something like a school trip: essentials first, then a buffer for surprises.',
+      okLabel:'A workable split',
+      okFeedback:'This still gets the class there, but with less spent on essentials or less contingency, there’s less of a buffer if something changes. There’s no single right split, but it’s worth checking the basics are covered first.',
+      afterNote:'Fully costing a trip means listing what it will really cost, then deciding where the money goes — and it’s always worth asking how the total cost could be brought down, for example by choosing a cheaper transport option or a shorter stay.' },
+
+    { id:'c3', kind:'sort', icon:'💡', title:'Bringing down the cost',
+      prompt:'For each idea, decide whether it would actually help bring down the cost of a school trip — then see a note on it.',
+      sortLabels:['Brings cost down','Doesn’t help'],
+      items:[
+        { text:'Carpooling or busing as a group instead of everyone travelling separately.', note:'Brings cost down — grouped transport is almost always cheaper per person than everyone travelling separately.' },
+        { text:'Packing lunches instead of buying food out every meal.', note:'Brings cost down — bringing food from home is usually far cheaper than buying it during the trip.' },
+        { text:'Booking activities at the last minute for extra excitement.', note:'Doesn’t help — last-minute bookings are often more expensive, not less. Booking ahead usually brings the price down.' },
+        { text:'Asking whether a shorter stay or a cheaper time of year would still meet the trip’s purpose.', note:'Brings cost down — adjusting the timing or length of a trip is a real way to reduce the total cost, as long as it still meets what the trip is for.' }
+      ],
+      afterNote:'When a budget is tight, groups often look for ways to bring the cost down before cutting things out altogether.',
+      reward:{fund:5,sustain:4} },
+
+    { id:'c4', kind:'rank', icon:'🏘️', title:'Rank the priorities',
+      prompt:'A local youth centre has $250 to spend this month on its wishlist. Tap the items in the order you’d fund them — your first tap is your top priority. Keep going until the budget is spent — anything you tap after that runs out won’t be funded this time.',
+      budget:250,
+      items:[
+        { id:'chairs', label:'Replacement chairs for the common room', cost:80 },
+        { id:'sportsgear', label:'New sports gear for the after-school club', cost:70 },
+        { id:'firstaid', label:'Restocked first aid kit (the old one is out of date)', cost:40 },
+        { id:'games', label:'New board games', cost:35 },
+        { id:'speaker', label:'Bluetooth speaker for events', cost:60 },
+        { id:'kettle', label:'New kettle for the kitchen (the old one is broken)', cost:45 }
+      ],
+      essentialIds:['firstaid','kettle'],
+      goodReward:{fund:15,sustain:6}, okReward:{fund:5,sustain:2},
+      goodFeedback:'The first aid kit and the kettle both made it into your funded list — sorting needs (safety, a working kitchen) ahead of nice-to-haves (games, a speaker) is exactly how groups rank spending priorities within a set budget.',
+      okFeedback:'There’s no single correct order, but it’s worth noticing that the first aid kit and the kettle — things that affect safety and everyday use — didn’t both make it into the funded list this time. Groups ranking priorities usually think about needs before wants.',
+      afterNote:'Using a given budget to rank spending priorities means thinking about what matters most — and often, what a group actually needs — before deciding what else it can afford.' }
+  ],
+
+  D:[
+    { id:'d1', kind:'match', icon:'🏠', title:'Sharing a roof',
+      prompt:'People share living arrangements in lots of different ways. Match each one to a benefit it can bring.',
+      pairs:[
+        { term:'Flatting', def:'Sharing rent and bills with housemates makes accommodation more affordable than living alone.' },
+        { term:'Papakāinga (communal Māori housing on ancestral land)', def:'Lets whānau live together on shared land, pooling resources and responsibilities while staying connected to their whenua.' },
+        { term:'A retirement village', def:'Residents share facilities and some costs, which can make services like maintenance or social activities more affordable than living completely independently.' },
+        { term:'Intergenerational living (e.g. grandparents, parents and children under one roof)', def:'Can share costs like rent, power, and childcare or elder care, while supporting family members of different ages.' }
+      ],
+      afterNote:'Shared living arrangements help people access more than they could on their own, manage costs like utilities and care, and live out their cultural or personal values.',
+      chart:{ title:'Example: weekly rent, per person', unitSuffix:'/wk',
+        bars:[
+          { label:'Renting a 1-bedroom place alone', value:320, tone:'muted' },
+          { label:'Flatting — a 4-bedroom place split evenly', value:110, tone:'accent' }
+        ],
+        caption:'Same weekly rent, shared four ways instead of paid by one person — a big part of why people choose arrangements like flatting, papakāinga or intergenerational living.' },
+      reward:{fund:8,sustain:4} },
+
+    { id:'d2', kind:'reflect', icon:'💬', title:'Why pool resources?',
+      prompt:'Why do people pool money or resources? Tap all the reasons you think fit.',
+      chips:['To reflect cultural values, like whānau or hapū looking after each other','Because it matches someone’s personal values, like wanting to live simply','To ease financial pressure by sharing costs','To access things (like a car, tools or a big house) that would be hard to afford alone','To help with ongoing costs like power, water, childcare or elder care','Because a bank told them to'],
+      note:'People pool or share money and resources for cultural reasons, personal values, or to ease financial pressure — not because a bank told them to. Sharing can also mean a group accesses more together, and manages costs like utilities, childcare and elder care, than any one person could alone.',
+      reward:{fund:0,sustain:3} },
+
+    { id:'d3', kind:'decision', icon:'🔨', title:'The working bee',
+      prompt:'The local marae is planning a working bee to repair the fence and repaint the wharekai. The paint and materials alone would cost $600 — more than the committee has on hand right now.',
+      options:[
+        { label:'Ask whānau to bring their own tools, and see if anyone can donate leftover paint or timber offcuts', detail:'Pools what people already have instead of buying everything new.',
+          kind:'good',
+          feedback:'Great thinking — suggesting how resources like tools, materials or people’s time might be shared is a practical way to help a community project without the group having to find all the cash itself.',
+          rewardChoice:{
+            prompt:'Because the committee didn’t have to buy everything new, there’s some money left over. Where should it go?',
+            choices:[
+              { label:'Add it to the shared fund, ready for the next project', effect:{fund:14,sustain:4},
+                note:'That keeps cash on hand for whatever the group tackles next.' },
+              { label:'Put it toward the group’s contingency savings instead', effect:{fund:4,sustain:14},
+                note:'That builds a bigger buffer for the group’s financial sustainability.' }
+            ]
+          } },
+        { label:'Cancel the working bee until the full $600 is saved up', detail:'Very cautious, but delays something the community wants done.',
+          effect:{fund:0,sustain:0}, kind:'info',
+          feedback:'Saving up matters, but it isn’t the only option — pooling resources like tools, materials or time can often get a project moving sooner.' },
+        { label:'Have one committee member pay for everything themselves', detail:'Solves it fast, but puts the cost on one person instead of the group.',
+          effect:{fund:0,sustain:2}, kind:'info',
+          feedback:'This gets the paint bought, but it isn’t really sharing the load — spreading contributions of money, materials or time across the group is usually fairer and more sustainable.' }
+      ],
+      afterNote:'Community projects often rely on people pooling and sharing resources — not just money, but also materials, tools, skills and time.' },
+
+    { id:'d4', kind:'compose', icon:'✍️', title:'Explain a collective approach',
+      prompt:'Pick one of these: papakāinga, a retirement village, or intergenerational / extended family living. In a few sentences, explain why a group might choose that arrangement, and how sharing land, responsibilities or resources helps them.',
+      minWords:30,
+      examples:['Papakāinga lets whānau stay connected to their ancestral land while sharing housing costs and responsibilities across generations.','A retirement village lets residents share the cost of maintenance, security and social activities, so it’s often more affordable than living completely alone.','Intergenerational living can share rent, power, and childcare or elder care duties between generations, easing financial pressure on everyone involved.'],
+      reward:{fund:10,sustain:5} }
+  ],
+
+  E:[
+    { id:'e1', kind:'decision', icon:'☀️', title:'Planning for the quiet season',
+      prompt:'A small seaside tourism business is booked out over summer, but bookings almost disappear in winter. The owners are planning ahead for the quiet season.',
+      options:[
+        { label:'Set aside some of the summer profit, and plan to reduce costs (like staff hours) over winter', detail:'Plans ahead for a predictable quiet period.',
+          effect:{fund:0,sustain:8}, kind:'good',
+          feedback:'This is exactly what financial sustainability looks like — managing money to meet current needs while planning for a change the business can see coming.' },
+        { label:'Spend all the summer profit straight away and deal with winter when it comes', detail:'Feels good short-term, risky longer-term.',
+          effect:{fund:0,sustain:-6}, kind:'bad',
+          feedback:'Without a plan for the predictable quiet season, the business could really struggle to cover its costs over winter.' },
+        { label:'Borrow money every winter to cover costs, without changing anything else', detail:'Covers the gap, but the underlying problem repeats every year.',
+          effect:{fund:0,sustain:-2}, kind:'info',
+          feedback:'Borrowing can help in the short term, but relying on it every single year — without adjusting costs or saving ahead — isn’t a sustainable long-term plan.' }
+      ],
+      afterNote:'Like individuals, groups and businesses need to think about financial sustainability — planning for changes they can predict, like quiet seasons, as well as ones they can’t.' },
+
+    { id:'e2', kind:'sort', icon:'🧠', title:'Sustainable or not?',
+      prompt:'For each statement, decide if it’s true or false — then see a note on it.',
+      sortLabels:['True','False'],
+      items:[
+        { text:'Financial sustainability means only worrying about money right now, not the future.', note:'False — financial sustainability is about meeting current needs and being ready for future changes and challenges, not just today.' },
+        { text:'A group keeping some emergency savings is an example of planning for financial sustainability.', note:'True — emergency savings give a group a buffer to respond to unexpected changes or challenges.' },
+        { text:'Financial sustainability only matters for businesses, not community groups or families.', note:'False — just like individuals, families, community organisations and businesses all benefit from thinking about their financial sustainability.' },
+        { text:'A budget can be part of how a group plans for financial sustainability.', note:'True — budgets help a group plan its spending within its income, which supports meeting both current needs and future ones.' }
+      ],
+      afterNote:'Financial sustainability is about balance — managing money for what a group needs today, while staying ready for changes tomorrow.',
+      reward:{fund:5,sustain:4} },
+
+    { id:'e3', kind:'mcq', icon:'🍲', title:'Why keep a buffer?',
+      prompt:'Work through both questions about this scenario.',
+      questions:[
+        { q:'A community food bank has managed to build up some emergency savings over the year. Why might this matter?',
+          options:[
+            { text:'It gives them a buffer if donations drop suddenly or costs rise unexpectedly.', correct:true,
+              feedback:'Right — emergency savings help a group respond to changes and challenges it didn’t necessarily see coming.' },
+            { text:'It means they never need to think about their budget again.', correct:false,
+              feedback:'Savings help with sustainability, but a group still needs to keep planning and budgeting — savings are a buffer, not a replacement for planning.' },
+            { text:'It has no real benefit unless they spend it straight away.', correct:false,
+              feedback:'The value of emergency savings is having them ready for when they’re actually needed — that’s the whole point of a buffer.' }
+          ] },
+        { q:'Which of these best describes financial sustainability?',
+          options:[
+            { text:'Managing money in a way that meets current needs and responds to future changes and challenges.', correct:true,
+              feedback:'Exactly — that’s the definition. It’s about balancing today’s needs with tomorrow’s possible changes.' },
+            { text:'Spending exactly the same amount every single month no matter what happens.', correct:false,
+              feedback:'Sustainability is about being able to respond to change, not about never changing spending at all.' },
+            { text:'Having as much money as possible, regardless of future needs.', correct:false,
+              feedback:'It’s less about the total amount and more about managing money well over time — meeting needs now and staying ready for what’s ahead.' }
+          ] }
+      ],
+      afterNote:'Groups that think about financial sustainability — like keeping emergency savings — are better placed to handle surprises.',
+      reward:{fund:5,sustain:3} },
+
+    { id:'e4', kind:'match', icon:'📈', title:'Spot the sustainable choice',
+      prompt:'Match each situation to what it shows about financial sustainability.',
+      pairs:[
+        { term:'A sports club keeps a small reserve fund for unexpected repairs.', def:'Sustainable — a reserve fund is exactly the kind of buffer that helps a group respond to unexpected costs.' },
+        { term:'A business spends its entire annual budget in the first three months.', def:'Risky — without careful planning, a group can run short before the year (or the season) is even over.' },
+        { term:'A whānau reviews their shared budget when someone’s income changes.', def:'Sustainable — adjusting a plan when circumstances change is a key part of financial sustainability.' },
+        { term:'An organisation ignores rising costs and keeps spending exactly the same as last year.', def:'Risky — not responding to a real change, like rising costs, can undermine a group’s financial sustainability over time.' }
+      ],
+      afterNote:'Financially sustainable groups don’t just make a plan once — they keep checking it against what’s actually happening, and adjust when needed.',
+      reward:{fund:8,sustain:5} }
+  ],
+
+  W:[
+    { id:'w1', kind:'compose', icon:'📣', title:'Tell others what you’ve learned',
+      prompt:'Imagine you’re helping a younger student understand that groups — not just individuals — have to make financial decisions. Write a short explanation, using at least one example (a family, a hapū/iwi, a community group or a business), of why groups need to plan, budget, and sometimes share resources.',
+      minWords:40,
+      examples:['Community groups like sports clubs can’t afford everything, so they use a budget and sometimes ask members to share equipment or volunteer their time instead of paying for it all.','A whānau might pool money for a shared car so everyone can get where they need to go, instead of each person trying to afford one on their own.','A small business plans ahead for quiet times of year by saving some of its profit from busy periods, so it can keep paying its bills all year round.'],
+      reward:{fund:15,sustain:8} }
+  ]
+};
+
+var STAR_MAX = 8; /* a3(2) + b3(2) + c1(2) + e3(2) */
+
+/* Opening "chip-pick" — one quick question, echoed back on the certificate. */
+var DREAM_OPTIONS = [
+  { id:'car', label:'A shared car or ute', sentence:'pool money for a shared car or ute' },
+  { id:'gathering', label:'A bigger family or community gathering', sentence:'pool money for a bigger family or community gathering' },
+  { id:'gear', label:'New gear or equipment for a local club', sentence:'pool money for new gear or equipment for a local club' },
+  { id:'emergency', label:'An emergency fund for surprises', sentence:'pool money for an emergency fund, just in case' },
+  { id:'repair', label:'A home or building repair', sentence:'pool money for a home or building repair' },
+  { id:'project', label:'A community project (garden, playground, marae upgrade)', sentence:'pool money for a community project — like a garden, a playground or a marae upgrade' }
+];
+
+/* A single random mid-module surprise for Built to Last — fires once, after the first task. */
+var CURVEBALLS = [
+  { id:'bill', icon:'📬', title:'An unexpected bill',
+    prompt:'Curveball! Partway through the year, your community group gets a $150 bill for something nobody budgeted for — repairing a shared lawnmower. What now?',
+    options:[
+      { label:'Check the contingency fund first', kind:'good', effect:{fund:-10,sustain:6},
+        feedback:'Using a small buffer for exactly this kind of surprise is what it’s there for — and it means no one has to scramble for cash right away.' },
+      { label:'Ask everyone to chip in an equal share on the spot', kind:'info', effect:{fund:0,sustain:2},
+        feedback:'This spreads the cost fairly, but asking for sudden extra money can catch people off guard — a bit of warning (or a buffer) usually works better.' },
+      { label:'Ignore it and hope it sorts itself out', kind:'bad', effect:{fund:0,sustain:-10},
+        feedback:'Unpaid bills don’t disappear — ignoring a real cost usually just makes the eventual fix more stressful, or more expensive.' }
+    ] },
+  { id:'donation', icon:'🎁', title:'A surprise donation',
+    prompt:'Curveball! A local business unexpectedly donates $200 to your group “for whatever you need most.” What now?',
+    options:[
+      { label:'Add it to the contingency fund for next time something breaks', kind:'good', effect:{fund:6,sustain:10},
+        feedback:'Good instinct — topping up a buffer with an unplanned windfall is exactly how groups build financial sustainability over time.' },
+      { label:'Split it evenly and just hand the cash back to members', kind:'info', effect:{fund:0,sustain:0},
+        feedback:'That’s one option, but it means the group itself doesn’t benefit from the gift at all — worth weighing against putting it toward a shared need.' },
+      { label:'Spend it all straight away on something fun for members', kind:'bad', effect:{fund:-4,sustain:-2},
+        feedback:'Nice for morale, but an unplanned windfall is also a chance to strengthen the group’s buffer for next time something goes wrong.' }
+    ] },
+  { id:'dropout', icon:'📉', title:'Fewer people sharing the cost',
+    prompt:'Curveball! Two families who were sharing the cost of a community event have had to pull out at the last minute. The event still costs the same to run. What now?',
+    options:[
+      { label:'Check the budget and see what can realistically be trimmed', kind:'good', effect:{fund:2,sustain:8},
+        feedback:'Reviewing the plan when circumstances change — rather than just carrying on regardless — is a key part of financial sustainability.' },
+      { label:'Cancel the whole event on the spot', kind:'info', effect:{fund:0,sustain:-2},
+        feedback:'Sometimes necessary, but it’s worth checking for a smaller adjustment first — cancelling altogether gives up on something the group valued.' },
+      { label:'Carry on exactly as planned and cover the gap from the shared fund', kind:'bad', effect:{fund:-14,sustain:-4},
+        feedback:'This gets the event done, but draining the shared fund to cover a gap without adjusting anything else can leave the group short later.' }
+    ] }
+];
+
+/* =========================================================
+   STATE
+========================================================= */
+var SAVE_KEY = 'moneytogether_y7_v1';
+
+function defaultState(){
+  return {
+    screen:'intro', name:'',
+    activeModule:null, activeTaskIndex:0,
+    fund:200, sustain:50, stars:0,
+    completedTasks:{}, badges:[],
+    transitionModule:null, sustainWarned:false,
+    dreamId:null, dreamSentence:'',
+    curveballShown:false, activeCurveball:null
+  };
+}
+var state = load() || defaultState();
+
+function save(){ try{ localStorage.setItem(SAVE_KEY, JSON.stringify(state)); }catch(e){} }
+function load(){ try{ var raw = localStorage.getItem(SAVE_KEY); return raw ? JSON.parse(raw) : null; }catch(e){ return null; } }
+function clamp(v,a,b){ return Math.max(a,Math.min(b,v)); }
+function fmt(n){ n = Math.round(n); return (n<0?'-$':'$') + Math.abs(n).toLocaleString('en-NZ'); }
+
+/* Small, theme-aware two-bar comparison — reused wherever a task wants to show a magnitude gap directly, instead of just describing it. */
+function buildComparisonChart(chart, mod){
+  var wrap = document.createElement('div');
+  wrap.className = 'chart-wrap';
+  wrap.style.setProperty('--mc', mod.color);
+  var maxVal = Math.max.apply(null, chart.bars.map(function(b){ return b.value; }));
+  var suffix = chart.unitSuffix || '';
+  var html = '<div class="chart-title">'+chart.title+'</div>';
+  chart.bars.forEach(function(b){
+    var pct = maxVal > 0 ? Math.max(Math.round((b.value/maxVal)*100), 14) : 14;
+    var accent = b.tone === 'accent';
+    var barColor = accent ? 'var(--mc)' : 'var(--paper-3)';
+    var textColor = accent ? '#ffffff' : 'var(--ink)';
+    html += '<div class="chart-bar-row"><div class="chart-bar-label">'+b.label+'</div>'
+      + '<div class="chart-bar-track"><div class="chart-bar-fill" style="width:'+pct+'%;background:'+barColor+';"><span style="color:'+textColor+';">'+fmt(b.value)+suffix+'</span></div></div>'
+      + '</div>';
+  });
+  if(chart.caption) html += '<div class="chart-caption">'+chart.caption+'</div>';
+  wrap.innerHTML = html;
+  return wrap;
+}
+function $(id){ return document.getElementById(id); }
+
+function moduleById(id){ for(var i=0;i<MODULES.length;i++){ if(MODULES[i].id===id) return MODULES[i]; } return null; }
+
+function tasksDoneCount(modId){
+  var list = TASKS[modId], n = 0;
+  for(var i=0;i<list.length;i++){ if(state.completedTasks[list[i].id]) n++; }
+  return n;
+}
+function moduleComplete(modId){ return tasksDoneCount(modId) === TASKS[modId].length; }
+function moduleUnlocked(mod){
+  if(!mod.requires) return true;
+  for(var i=0;i<mod.requires.length;i++){ if(!moduleComplete(mod.requires[i])) return false; }
+  return true;
+}
+function awardBadge(modId){
+  var mod = moduleById(modId);
+  if(state.badges.indexOf(modId) === -1){
+    state.badges.push(modId);
+    toast('🏅 Badge earned — ' + mod.badge + '!');
+  }
+}
+function totalTaskCount(){
+  var n = 0; for(var k in TASKS){ n += TASKS[k].length; } return n;
+}
+function totalDoneCount(){
+  var n = 0; for(var k in state.completedTasks){ if(state.completedTasks[k]) n++; } return n;
+}
+function badgeMax(){ return MODULES.length + 1; } /* one badge per module, plus the master badge */
+
+var toastTimer = null;
+function toast(msg){
+  var t = $('toast'); t.textContent = msg; t.classList.add('show');
+  if(toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 2600);
+}
+
+/* =========================================================
+   HUD
+========================================================= */
+function renderHUD(){
+  var html = '';
+  var sustainVal = clamp(state.sustain,0,100);
+  var atFloor = sustainVal <= 0;
+  html += '<div class="stamp"><div class="lbl">Shared fund</div><div class="val num">'+fmt(state.fund)+'</div></div>';
+  html += '<div class="stamp'+(atFloor?' stamp-alert':'')+'"><div class="lbl">Sustainability</div><div class="val num">'+sustainVal+'%</div><div class="meterbar"><i style="width:'+sustainVal+'%"></i></div>'+(atFloor?'<div class="stamp-alert-note">⚠️ Bottomed out</div>':'')+'</div>';
+  html += '<div class="stamp"><div class="lbl">Knowledge stars</div><div class="val num">'+state.stars+' / '+STAR_MAX+'</div></div>';
+  html += '<div class="stamp"><div class="lbl">Badges</div><div class="val num">'+state.badges.length+' / '+badgeMax()+'</div></div>';
+  $('hud').innerHTML = html;
+}
+
+/* =========================================================
+   APP SHELL
+========================================================= */
+function renderApp(){
+  save();
+  renderHUD();
+  var app = $('app');
+  if(state.screen === 'intro'){ app.innerHTML = ''; renderIntro(app); }
+  else if(state.screen === 'dream'){ app.innerHTML = ''; renderDream(app); }
+  else if(state.screen === 'hub'){ app.innerHTML = ''; renderHub(app); }
+  else if(state.screen === 'task'){ app.innerHTML = ''; renderTaskScreen(app); }
+  else if(state.screen === 'transition'){ app.innerHTML = ''; renderTransition(app); }
+  else if(state.screen === 'curveball'){ app.innerHTML = ''; renderCurveball(app); }
+  else if(state.screen === 'certificate'){ app.innerHTML = ''; renderCertificate(app); }
+}
+
+function renderIntro(app){
+  var card = document.createElement('div');
+  card.className = 'card';
+  var html = '<h2 style="margin:0;">Welcome to Money Together</h2>';
+  html += '<p class="prompt">Individuals aren’t the only ones who make financial decisions — families, hapū and iwi, community organisations and businesses all have to as well. You’re about to explore who’s involved, how they weigh up trade-offs, how they budget, how they share resources, and how they plan for the future. There’s no single path through this: work through the five areas below in <b>any order you like</b>, then wrap up by sharing what you’ve learned.</p>';
+  html += '<div class="intro-modules">';
+  MODULES.slice(0,5).forEach(function(m){
+    html += '<div class="intro-mod" style="border-color:'+m.color+';"><div class="im-icon">'+m.icon+'</div><b>'+m.label+'</b></div>';
+  });
+  html += '</div>';
+  html += '<div class="field"><label for="name-input">Your name (optional, for your certificate)</label><input type="text" id="name-input" maxlength="40" value="'+escapeHtml(state.name||'')+'" placeholder="e.g. Alex"></div>';
+  html += '<button class="btn" id="start-btn" style="align-self:flex-start;">Continue →</button>';
+  card.innerHTML = html;
+  app.appendChild(card);
+  $('name-input').addEventListener('input', function(){ state.name = this.value; save(); });
+  $('start-btn').addEventListener('click', function(){ state.screen = 'dream'; renderApp(); });
+}
+
+function renderDream(app){
+  var card = document.createElement('div');
+  card.className = 'card';
+  var html = '<h2 style="margin:0;">One quick question</h2>';
+  html += '<p class="prompt">If your whānau, hapū or community group could pool money for one thing right now, what would it be? Pick whichever fits best — there’s no wrong answer.</p>';
+  html += '<div class="chip-row" id="dream-chips">';
+  DREAM_OPTIONS.forEach(function(o){ html += '<button class="chip" data-id="'+o.id+'">'+o.label+'</button>'; });
+  html += '</div>';
+  html += '<button class="btn" id="dream-continue-btn" style="align-self:flex-start;" disabled>Continue to the map →</button>';
+  card.innerHTML = html;
+  app.appendChild(card);
+
+  var chosen = null;
+  Array.prototype.forEach.call(document.querySelectorAll('#dream-chips .chip'), function(btn){
+    btn.addEventListener('click', function(){
+      Array.prototype.forEach.call(document.querySelectorAll('#dream-chips .chip'), function(b){ b.classList.remove('selected'); });
+      btn.classList.add('selected');
+      chosen = btn.getAttribute('data-id');
+      $('dream-continue-btn').disabled = false;
+    });
+  });
+  $('dream-continue-btn').addEventListener('click', function(){
+    if(!chosen) return;
+    var opt = DREAM_OPTIONS.filter(function(o){ return o.id === chosen; })[0];
+    state.dreamId = opt.id;
+    state.dreamSentence = opt.sentence;
+    state.screen = 'hub';
+    renderApp();
+  });
+}
+
+function renderHub(app){
+  var card = document.createElement('div');
+  card.className = 'card';
+  var doneAll = totalDoneCount(), totAll = totalTaskCount();
+  var html = '<h2 style="margin:0;">Your money map</h2>';
+  html += '<div class="overall-bar">Overall progress: <span class="num">'+doneAll+' / '+totAll+'</span><div class="meterbar"><i style="width:'+Math.round(doneAll/totAll*100)+'%"></i></div></div>';
+  html += '<div class="hub-grid" id="hub-grid"></div>';
+  card.innerHTML = html;
+  app.appendChild(card);
+
+  var grid = $('hub-grid');
+  MODULES.forEach(function(m){
+    var unlocked = moduleUnlocked(m);
+    var done = tasksDoneCount(m.id), total = TASKS[m.id].length, complete = done===total;
+    var el = document.createElement(unlocked ? 'button' : 'div');
+    el.className = 'mod-card' + (unlocked?'':' locked') + (complete?' complete':'');
+    el.style.setProperty('--mc', m.color);
+    var dots = '';
+    for(var i=0;i<total;i++){ dots += '<span class="mc-dot'+(i<done?' done':'')+'"></span>'; }
+    var inner = '<div class="mc-top"><div class="mc-icon">'+m.icon+'</div><div><h3>'+m.label+'</h3></div></div>';
+    inner += '<p>'+m.blurb+'</p>';
+    if(unlocked){
+      inner += '<div class="mc-progress"><span class="mc-dots">'+dots+'</span> '+done+' / '+total+' done'+(complete?' · Badge earned 🏅':'')+'</div>';
+    } else {
+      var reqLabels = (m.requires||[]).map(function(id){ return moduleById(id).label; }).join(', ');
+      inner += '<div class="lock-note">🔒 Unlocks after '+reqLabels+' are all complete.</div>';
+    }
+    el.innerHTML = inner;
+    if(unlocked){
+      el.addEventListener('click', function(modId){ return function(){
+        state.activeModule = modId;
+        state.activeTaskIndex = firstIncompleteIndex(modId);
+        state.screen = 'task';
+        renderApp();
+      };}(m.id));
+    }
+    grid.appendChild(el);
+  });
+
+  if(state.badges.length > 0){
+    var br = document.createElement('div');
+    br.className = 'badge-row';
+    state.badges.forEach(function(bid){
+      if(bid === 'MASTER'){ br.innerHTML += '<span class="badge-chip">🏆 All Sorted</span>'; return; }
+      var m = moduleById(bid);
+      br.innerHTML += '<span class="badge-chip">🏅 '+m.badge+'</span>';
+    });
+    app.appendChild(br);
+  }
+}
+
+function firstIncompleteIndex(modId){
+  var list = TASKS[modId];
+  for(var i=0;i<list.length;i++){ if(!state.completedTasks[list[i].id]) return i; }
+  return 0;
+}
+
+function escapeHtml(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* =========================================================
+   TASK SCREEN (dispatch by kind)
+========================================================= */
+function renderTaskScreen(app){
+  var mod = moduleById(state.activeModule);
+  var list = TASKS[mod.id];
+  var task = list[state.activeTaskIndex];
+
+  var card = document.createElement('div');
+  card.className = 'card task-card';
+  card.style.setProperty('--mc', mod.color);
+
+  var already = !!state.completedTasks[task.id];
+
+  var head = '<div class="task-head"><div class="th-left"><div class="th-icon">'+task.icon+'</div><div><div class="th-mod">'+mod.icon+' '+mod.label+'</div><h2>'+task.title+'</h2></div></div><div class="pill">Task '+(state.activeTaskIndex+1)+' of '+list.length+'</div></div>';
+  if(already){ head += '<div class="review-banner">🔁 You’ve already completed this one — this is a recap, so no extra fund, sustainability or stars will be added.</div>'; }
+  head += '<p class="prompt">'+task.prompt+'</p>';
+  var body = '<div id="task-body"></div>';
+  var foot = '<div class="task-foot"><button class="btn ghost small" id="back-hub-btn">← Back to map</button><div id="task-foot-right"></div></div>';
+
+  card.innerHTML = head + body + foot;
+  app.appendChild(card);
+
+  $('back-hub-btn').addEventListener('click', function(){ state.screen = 'hub'; renderApp(); });
+
+  if(task.kind === 'match') renderMatchKind(task, mod, already);
+  else if(task.kind === 'mcq') renderMcqKind(task, mod, already);
+  else if(task.kind === 'reflect') renderReflectKind(task, mod, already);
+  else if(task.kind === 'allocate') renderAllocateKind(task, mod, already);
+  else if(task.kind === 'rank') renderRankKind(task, mod, already);
+  else if(task.kind === 'decision') renderDecisionKind(task, mod, already);
+  else if(task.kind === 'sort') renderSortKind(task, mod, already);
+  else if(task.kind === 'compose') renderComposeKind(task, mod, already);
+}
+
+function showContinue(task, mod){
+  var right = $('task-foot-right');
+  var btn = document.createElement('button');
+  btn.className = 'btn small';
+  btn.textContent = 'Continue';
+  btn.addEventListener('click', function(){ finishTask(task, mod); });
+  right.innerHTML = '';
+  right.appendChild(btn);
+}
+
+function applyReward(reward){
+  if(!reward) return;
+  if(reward.fund) state.fund = clamp(state.fund + reward.fund, 0, 999999);
+  if(reward.sustain){
+    state.sustain = clamp(state.sustain + reward.sustain, 0, 100);
+    checkSustainFloor();
+  }
+}
+
+function checkSustainFloor(){
+  if(state.sustain <= 0){
+    if(!state.sustainWarned){
+      state.sustainWarned = true;
+      toast('⚠️ Sustainability has bottomed out — this group’s plan can’t handle any more changes or challenges right now.');
+    }
+  } else {
+    state.sustainWarned = false;
+  }
+}
+
+function finishTask(task, mod){
+  var wasComplete = !!state.completedTasks[task.id];
+  state.completedTasks[task.id] = true;
+  save();
+  if(moduleComplete(mod.id)){
+    if(!wasComplete){
+      awardBadge(mod.id);
+      checkMasterBadge();
+    }
+    if(mod.id === 'W'){
+      state.screen = 'certificate';
+      renderApp();
+      return;
+    }
+    state.screen = 'transition';
+    state.transitionModule = mod.id;
+    renderApp();
+    return;
+  }
+  /* A one-off surprise partway through Built to Last — fires once, right after its first task. */
+  if(mod.id === 'E' && task.id === 'e1' && !wasComplete && !state.curveballShown){
+    state.curveballShown = true;
+    var pick = CURVEBALLS[Math.floor(Math.random()*CURVEBALLS.length)];
+    state.activeCurveball = pick.id;
+    state.screen = 'curveball';
+    renderApp();
+    return;
+  }
+  /* More tasks left in this module — move straight on to the next one
+     instead of bouncing back to the map every time. */
+  var nextIdx = firstIncompleteIndex(mod.id);
+  state.activeTaskIndex = nextIdx;
+  state.screen = 'task';
+  renderApp();
+}
+
+function checkMasterBadge(){
+  var need = ['A','B','C','D','E','W'];
+  var all = true;
+  for(var i=0;i<need.length;i++){ if(state.badges.indexOf(need[i])===-1) all = false; }
+  if(all && state.badges.indexOf('MASTER')===-1){
+    state.badges.push('MASTER');
+    toast('🏆 All sorted! You’ve earned every badge on the map.');
+  }
+}
+
+function renderTransition(app){
+  var mod = moduleById(state.transitionModule);
+  var card = document.createElement('div');
+  card.className = 'card transition-card';
+  var html = '<div class="tc-icon">'+mod.icon+'</div>';
+  html += '<h2>'+mod.label+' — complete!</h2>';
+  html += '<p>You’ve earned the <b>'+mod.badge+'</b> badge.</p>';
+  html += '<button class="btn" id="back-hub-btn2">Back to the map →</button>';
+  card.innerHTML = html;
+  app.appendChild(card);
+  $('back-hub-btn2').addEventListener('click', function(){ state.screen='hub'; renderApp(); });
+}
+
+/* ---------------- CURVEBALL (one random mid-module surprise) ---------------- */
+function renderCurveball(app){
+  var cb = CURVEBALLS.filter(function(c){ return c.id === state.activeCurveball; })[0] || CURVEBALLS[0];
+  var mod = moduleById('E');
+  var card = document.createElement('div');
+  card.className = 'card curveball-card';
+  card.style.setProperty('--mc', mod.color);
+  var html = '<div class="cb-icon">'+cb.icon+'</div><div class="cb-kicker">Curveball</div><h2 style="margin:6px 0 2px;">'+cb.title+'</h2>';
+  html += '<p class="prompt" style="text-align:left;">'+cb.prompt+'</p>';
+  html += '<div class="opt-list" id="cb-opt-list">';
+  cb.options.forEach(function(o,i){ html += '<button class="opt-btn" data-i="'+i+'">'+o.label+'</button>'; });
+  html += '</div><div id="cb-fb"></div><div id="cb-foot"></div>';
+  card.innerHTML = html;
+  app.appendChild(card);
+
+  Array.prototype.forEach.call(document.querySelectorAll('#cb-opt-list .opt-btn'), function(btn){
+    btn.addEventListener('click', function(){
+      var i = parseInt(btn.getAttribute('data-i'),10);
+      var opt = cb.options[i];
+      Array.prototype.forEach.call(document.querySelectorAll('#cb-opt-list .opt-btn'), function(b){ b.disabled = true; });
+      var cls = opt.kind==='good' ? '' : (opt.kind==='bad' ? 'bad' : 'info');
+      btn.classList.add(opt.kind==='good' ? 'chosen-good' : (opt.kind==='bad' ? 'chosen-bad' : 'chosen'));
+      applyReward(opt.effect);
+      renderHUD();
+      $('cb-fb').innerHTML = '<div class="feedback '+cls+'"><b>'+(opt.kind==='good'?'Good call':(opt.kind==='bad'?'This one backfires':'Worth thinking about'))+'</b>'+opt.feedback+'</div>';
+      var btn2 = document.createElement('button');
+      btn2.className = 'btn small';
+      btn2.textContent = 'Back to it →';
+      btn2.addEventListener('click', function(){
+        state.activeModule = 'E';
+        state.activeTaskIndex = firstIncompleteIndex('E');
+        state.screen = 'task';
+        renderApp();
+      });
+      $('cb-foot').appendChild(btn2);
+    });
+  });
+}
+
+/* ---------------- DECISION ---------------- */
+function renderDecisionKind(task, mod, already){
+  var body = $('task-body');
+  var html = '<div class="opt-list" id="opt-list">';
+  task.options.forEach(function(o,i){ html += '<button class="opt-btn" data-i="'+i+'"><b>'+o.label+'</b><span class="opt-detail">'+o.detail+'</span></button>'; });
+  html += '</div><div id="fb"></div>';
+  body.innerHTML = html;
+
+  Array.prototype.forEach.call(document.querySelectorAll('#opt-list .opt-btn'), function(btn){
+    btn.addEventListener('click', function(){
+      var i = parseInt(btn.getAttribute('data-i'),10);
+      var opt = task.options[i];
+      Array.prototype.forEach.call(document.querySelectorAll('#opt-list .opt-btn'), function(b){ b.disabled = true; });
+      var cls = opt.kind==='good' ? '' : (opt.kind==='bad' ? 'bad' : 'info');
+      var btnCls = opt.kind==='good' ? 'chosen-good' : (opt.kind==='bad' ? 'chosen-bad' : 'chosen');
+      var label = opt.kind==='good' ? 'Good call' : (opt.kind==='bad' ? 'This one backfires' : 'Worth thinking about');
+      btn.classList.add(btnCls);
+      var fb = '<div class="feedback '+cls+'"><b>'+label+'</b>'+opt.feedback+'</div>';
+      $('fb').innerHTML = fb;
+      if(opt.rewardChoice){
+        renderRewardChoice(task, mod, already, opt.rewardChoice);
+      } else {
+        if(!already) applyReward(opt.effect);
+        renderHUD();
+        if(task.afterNote) fb += '<div class="feedback info" style="margin-top:8px;"><b>Worth remembering</b>'+task.afterNote+'</div>';
+        $('fb').innerHTML = fb;
+        showContinue(task, mod);
+      }
+    });
+  });
+}
+
+/* ---------------- REWARD CHOICE (where should a good outcome's benefit land?) ---------------- */
+function renderRewardChoice(task, mod, already, rc){
+  var body = $('task-body');
+  var box = document.createElement('div');
+  box.style.marginTop = '10px';
+  var html = '<div style="font-weight:700;font-size:12.5px;margin-bottom:6px;">'+rc.prompt+'</div><div class="opt-list" id="rc-list">';
+  rc.choices.forEach(function(c,i){ html += '<button class="opt-btn" data-i="'+i+'">'+c.label+'</button>'; });
+  html += '</div>';
+  box.innerHTML = html;
+  body.appendChild(box);
+
+  Array.prototype.forEach.call(box.querySelectorAll('#rc-list .opt-btn'), function(btn){
+    btn.addEventListener('click', function(){
+      var i = parseInt(btn.getAttribute('data-i'),10);
+      var choice = rc.choices[i];
+      Array.prototype.forEach.call(box.querySelectorAll('#rc-list .opt-btn'), function(b){ b.disabled = true; });
+      btn.classList.add('chosen');
+      if(!already) applyReward(choice.effect);
+      renderHUD();
+      var fb = $('fb');
+      var note = document.createElement('div');
+      note.className = 'feedback';
+      note.style.marginTop = '8px';
+      note.innerHTML = '<b>Locked in</b>'+(choice.note||'');
+      fb.appendChild(note);
+      if(task.afterNote){
+        var an = document.createElement('div');
+        an.className = 'feedback info';
+        an.style.marginTop = '8px';
+        an.innerHTML = '<b>Worth remembering</b>'+task.afterNote;
+        fb.appendChild(an);
+      }
+      showContinue(task, mod);
+    });
+  });
+}
+
+/* ---------------- MCQ (multi-question, one star per correct answer) ---------------- */
+function renderMcqKind(task, mod, already){
+  var qi = 0, correctCount = 0;
+  var body = $('task-body');
+
+  function renderQ(){
+    var q = task.questions[qi];
+    var html = '<div class="pill" style="margin-bottom:8px;">Question '+(qi+1)+' of '+task.questions.length+'</div>';
+    html += '<div style="font-weight:700;font-size:14px;margin-bottom:6px;">'+q.q+'</div>';
+    html += '<div class="opt-list" id="opt-list">';
+    q.options.forEach(function(o,i){ html += '<button class="opt-btn" data-i="'+i+'">'+o.text+'</button>'; });
+    html += '</div><div id="fb"></div>';
+    body.innerHTML = html;
+
+    Array.prototype.forEach.call(document.querySelectorAll('#opt-list .opt-btn'), function(btn){
+      btn.addEventListener('click', function(){
+        var i = parseInt(btn.getAttribute('data-i'),10);
+        var opt = q.options[i];
+        Array.prototype.forEach.call(document.querySelectorAll('#opt-list .opt-btn'), function(b){ b.disabled = true; });
+        btn.classList.add(opt.correct ? 'chosen-good' : 'chosen-bad');
+        if(opt.correct) correctCount++;
+        $('fb').innerHTML = '<div class="feedback '+(opt.correct?'':'bad')+'"><b>'+(opt.correct?'Nice work':'Worth a rethink')+'</b>'+opt.feedback+'</div>';
+        var right = $('task-foot-right');
+        var btn2 = document.createElement('button');
+        btn2.className = 'btn small';
+        if(qi < task.questions.length-1){
+          btn2.textContent = 'Next question →';
+          btn2.addEventListener('click', function(){ qi++; renderQ(); });
+        } else {
+          btn2.textContent = 'Continue';
+          btn2.addEventListener('click', function(){
+            if(!already){ state.stars = clamp(state.stars + correctCount, 0, STAR_MAX); applyReward(task.reward); }
+            renderHUD();
+            if(task.afterNote){ $('fb').innerHTML += '<div class="feedback info" style="margin-top:8px;"><b>Worth remembering</b>'+task.afterNote+'</div>'; }
+            finishTask(task, mod);
+          });
+        }
+        right.innerHTML = ''; right.appendChild(btn2);
+      });
+    });
+  }
+  renderQ();
+}
+
+/* ---------------- MATCH ---------------- */
+function renderMatchKind(task, mod, already){
+  var terms = task.pairs.map(function(p,i){ return {i:i, text:p.term}; });
+  var defs = task.pairs.map(function(p,i){ return {i:i, text:p.def}; });
+  function shuffle(arr){ for(var i=arr.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=arr[i]; arr[i]=arr[j]; arr[j]=t; } return arr; }
+  shuffle(terms); shuffle(defs);
+
+  var body = $('task-body');
+  var html = '<div class="match-cols">';
+  html += '<div><div class="match-col-title">Term</div>'+terms.map(function(t){ return '<button class="match-item" data-side="term" data-i="'+t.i+'">'+t.text+'</button>'; }).join('')+'</div>';
+  html += '<div><div class="match-col-title">Match</div>'+defs.map(function(d){ return '<button class="match-item" data-side="def" data-i="'+d.i+'">'+d.text+'</button>'; }).join('')+'</div>';
+  html += '</div><div class="match-score" id="match-score">Matched 0 of '+task.pairs.length+'</div><div id="fb"></div>';
+  body.innerHTML = html;
+  body.querySelector('.match-col-title').parentElement.style.setProperty('--mc', mod.color);
+
+  var selectedTerm = null, matched = 0;
+  Array.prototype.forEach.call(document.querySelectorAll('.match-item'), function(btn){
+    btn.addEventListener('click', function(){
+      var side = btn.getAttribute('data-side');
+      var i = parseInt(btn.getAttribute('data-i'),10);
+      if(side==='term'){
+        Array.prototype.forEach.call(document.querySelectorAll('.match-item[data-side="term"]'), function(b){ b.classList.remove('selected'); });
+        btn.classList.add('selected');
+        selectedTerm = i;
+      } else {
+        if(selectedTerm===null) return;
+        if(selectedTerm===i){
+          matched++;
+          document.querySelector('.match-item[data-side="term"][data-i="'+i+'"]').classList.add('done');
+          document.querySelector('.match-item[data-side="term"][data-i="'+i+'"]').disabled = true;
+          btn.classList.add('done'); btn.disabled = true;
+          selectedTerm = null;
+          $('match-score').textContent = 'Matched '+matched+' of '+task.pairs.length;
+          if(matched === task.pairs.length){
+            if(!already) applyReward(task.reward);
+            renderHUD();
+            $('fb').innerHTML = task.afterNote ? '<div class="feedback info"><b>Worth remembering</b>'+task.afterNote+'</div>' : '';
+            if(task.chart) $('fb').appendChild(buildComparisonChart(task.chart, mod));
+            showContinue(task, mod);
+          }
+        } else {
+          btn.classList.add('wrongflash');
+          setTimeout(function(){ btn.classList.remove('wrongflash'); }, 400);
+          Array.prototype.forEach.call(document.querySelectorAll('.match-item[data-side="term"]'), function(b){ b.classList.remove('selected'); });
+          selectedTerm = null;
+        }
+      }
+    });
+  });
+}
+
+/* ---------------- REFLECT (multi-select, no wrong answers) ---------------- */
+function renderReflectKind(task, mod, already){
+  var body = $('task-body');
+  var html = '<div class="chip-row" id="chip-row">';
+  task.chips.forEach(function(c,i){ html += '<button class="chip" data-i="'+i+'">'+c+'</button>'; });
+  html += '</div><div id="fb"></div>';
+  body.innerHTML = html;
+
+  var selected = {};
+  Array.prototype.forEach.call(document.querySelectorAll('#chip-row .chip'), function(btn){
+    btn.addEventListener('click', function(){
+      var i = btn.getAttribute('data-i');
+      btn.classList.toggle('selected');
+      selected[i] = btn.classList.contains('selected');
+      var any = Object.keys(selected).some(function(k){ return selected[k]; });
+      var right = $('task-foot-right');
+      if(any && !$('reflect-submit')){
+        right.innerHTML = '<button class="btn small" id="reflect-submit">Submit</button>';
+        $('reflect-submit').addEventListener('click', function(){
+          if(!already) applyReward(task.reward);
+          renderHUD();
+          $('fb').innerHTML = '<div class="feedback info"><b>Worth remembering</b>'+task.note+'</div>';
+          showContinue(task, mod);
+        });
+      } else if(!any && $('reflect-submit')){
+        right.innerHTML = '';
+      }
+    });
+  });
+}
+
+/* ---------------- ALLOCATE (split a budget across categories) ---------------- */
+function renderAllocateKind(task, mod, already){
+  var body = $('task-body');
+  var html = '<div id="alloc-rows">';
+  task.categories.forEach(function(c){
+    html += '<div class="alloc-row"><label for="al-'+c.id+'">'+c.label+'</label><input type="range" min="0" max="100" value="'+c.def+'" id="al-'+c.id+'"><span class="alloc-val num" id="alv-'+c.id+'">'+c.def+'%</span></div>';
+  });
+  html += '</div><div class="alloc-total" id="alloc-total">Total: <span class="num" id="alloc-total-val">100</span>%</div><div id="fb"></div>';
+  body.innerHTML = html;
+
+  function recalc(){
+    var total = 0;
+    task.categories.forEach(function(c){ total += parseInt($('al-'+c.id).value,10); });
+    $('alloc-total-val').textContent = total;
+    var box = $('alloc-total');
+    box.className = 'alloc-total ' + (total===100?'ok':'bad');
+    return total;
+  }
+  task.categories.forEach(function(c){
+    $('al-'+c.id).addEventListener('input', function(){ $('alv-'+c.id).textContent = this.value+'%'; recalc(); });
+  });
+  recalc();
+
+  var right = $('task-foot-right');
+  right.innerHTML = '<button class="btn small" id="alloc-submit">Set the budget</button>';
+  $('alloc-submit').addEventListener('click', function(){
+    var total = recalc();
+    if(total !== 100){ toast('Your split needs to add up to exactly 100%.'); return; }
+    var essentialTotal = 0;
+    (task.essentialIds||[]).forEach(function(id){ essentialTotal += parseInt($('al-'+id).value,10); });
+    var contingency = task.contingencyId ? parseInt($('al-'+task.contingencyId).value,10) : 100;
+    var good = essentialTotal >= (task.minEssential||0) && contingency >= (task.minContingency||0);
+    var reward = good ? task.goodReward : task.okReward;
+    if(!already) applyReward(reward);
+    renderHUD();
+    var fb = good
+      ? ('<div class="feedback"><b>'+(task.goodLabel||'A solid split')+'</b>'+task.goodFeedback+'</div>')
+      : ('<div class="feedback info"><b>'+(task.okLabel||'A workable split')+'</b>'+task.okFeedback+'</div>');
+    if(task.afterNote) fb += '<div class="feedback info" style="margin-top:8px;"><b>Worth remembering</b>'+task.afterNote+'</div>';
+    $('fb').innerHTML = fb;
+    $('alloc-submit').disabled = true;
+    showContinue(task, mod);
+  });
+}
+
+/* ---------------- RANK (tap items in priority order against a fixed budget) ---------------- */
+function renderRankKind(task, mod, already){
+  var body = $('task-body');
+  var order = [];
+
+  function fundedInfo(){
+    var total = 0, funded = {};
+    order.forEach(function(id){
+      var item = task.items.filter(function(it){ return it.id === id; })[0];
+      if(total + item.cost <= task.budget){ total += item.cost; funded[id] = true; }
+    });
+    return { funded:funded, total:total };
+  }
+
+  function draw(){
+    var info = fundedInfo();
+    var html = '<div id="rank-list">';
+    task.items.forEach(function(it){
+      var idx = order.indexOf(it.id);
+      var picked = idx !== -1;
+      var funded = picked && info.funded[it.id];
+      var cls = 'rank-item' + (picked?' picked':'') + (picked && !funded ? ' unfunded':'');
+      var left = (picked ? '<span class="ri-order">'+(idx+1)+'</span>' : '<span class="ri-order" style="background:var(--paper-3);color:var(--ink-mute);">–</span>') + '<span>'+it.label+(picked && !funded ? '<span class="ri-note">Not funded this time — the budget ran out first.</span>' : '')+'</span>';
+      html += '<button class="'+cls+'" data-id="'+it.id+'"><span class="ri-left">'+left+'</span><span class="ri-cost num">'+fmt(it.cost)+'</span></button>';
+    });
+    html += '</div><div class="rank-total" id="rank-total">Committed so far: <span class="num">'+fmt(info.total)+'</span> of <span class="num">'+fmt(task.budget)+'</span></div><div id="fb"></div>';
+    body.innerHTML = html;
+    body.querySelector('#rank-list').style.setProperty('--mc', mod.color);
+
+    Array.prototype.forEach.call(document.querySelectorAll('#rank-list .rank-item'), function(btn){
+      btn.addEventListener('click', function(){
+        var id = btn.getAttribute('data-id');
+        var i = order.indexOf(id);
+        if(i === -1) order.push(id); else order.splice(i,1);
+        draw();
+        updateFoot();
+      });
+    });
+  }
+
+  function updateFoot(){
+    var right = $('task-foot-right');
+    if(order.length > 0){
+      right.innerHTML = '<button class="btn small" id="rank-submit">Lock in my ranking</button>';
+      $('rank-submit').addEventListener('click', function(){
+        var info = fundedInfo();
+        var essentials = task.essentialIds || [];
+        var good = essentials.length ? essentials.every(function(id){ return info.funded[id]; }) : true;
+        var reward = good ? task.goodReward : task.okReward;
+        if(!already) applyReward(reward);
+        renderHUD();
+        var fb = good
+          ? ('<div class="feedback"><b>Needs first</b>'+task.goodFeedback+'</div>')
+          : ('<div class="feedback info"><b>Worth a look</b>'+task.okFeedback+'</div>');
+        if(task.afterNote) fb += '<div class="feedback info" style="margin-top:8px;"><b>Worth remembering</b>'+task.afterNote+'</div>';
+        $('fb').innerHTML = fb;
+        Array.prototype.forEach.call(document.querySelectorAll('#rank-list .rank-item'), function(b){ b.disabled = true; b.classList.add('locked'); });
+        $('rank-submit').disabled = true;
+        showContinue(task, mod);
+      });
+    } else {
+      right.innerHTML = '';
+    }
+  }
+
+  draw();
+  updateFoot();
+}
+
+/* ---------------- SORT (true/false or two-way classification) ---------------- */
+function renderSortKind(task, mod, already){
+  var body = $('task-body');
+  var labels = task.sortLabels || ['Yes','No'];
+  var html = '';
+  task.items.forEach(function(it,i){
+    html += '<div class="sort-item" id="sort-'+i+'"><div class="si-text">'+it.text+'</div><div class="si-btns">';
+    html += '<button class="btn ghost small" data-i="'+i+'" data-v="yes">'+labels[0]+'</button>';
+    html += '<button class="btn ghost small" data-i="'+i+'" data-v="no">'+labels[1]+'</button>';
+    html += '</div></div>';
+  });
+  html += '<div class="match-score" id="sort-score">Rated 0 of '+task.items.length+'</div>';
+  body.innerHTML = html;
+
+  var rated = 0;
+  Array.prototype.forEach.call(document.querySelectorAll('.sort-item button'), function(btn){
+    btn.addEventListener('click', function(){
+      var i = parseInt(btn.getAttribute('data-i'),10);
+      var item = document.getElementById('sort-'+i);
+      if(item.classList.contains('done')) return;
+      item.classList.add('done');
+      Array.prototype.forEach.call(item.querySelectorAll('button'), function(b){ b.disabled = true; });
+      var note = document.createElement('div');
+      note.className = 'feedback info si-note';
+      note.innerHTML = task.items[i].note;
+      item.appendChild(note);
+      rated++;
+      $('sort-score').textContent = 'Rated '+rated+' of '+task.items.length;
+      if(rated === task.items.length){
+        if(!already) applyReward(task.reward);
+        renderHUD();
+        var fb = document.createElement('div');
+        fb.className = 'feedback info';
+        fb.style.marginTop = '8px';
+        fb.innerHTML = '<b>Worth remembering</b>'+task.afterNote;
+        body.appendChild(fb);
+        showContinue(task, mod);
+      }
+    });
+  });
+}
+
+/* ---------------- COMPOSE ---------------- */
+function renderComposeKind(task, mod, already){
+  var body = $('task-body');
+  var html = '<textarea class="compose-box" id="compose-box" placeholder="Write your answer here…"></textarea>';
+  html += '<div class="wordcount" id="wc">0 words — aim for at least '+task.minWords+'</div><div id="fb"></div>';
+  body.innerHTML = html;
+
+  var ta = $('compose-box');
+  function wc(){ var t = ta.value.trim(); return t ? t.split(/\s+/).filter(Boolean).length : 0; }
+  ta.addEventListener('input', function(){
+    var n = wc();
+    $('wc').textContent = n + ' words — aim for at least ' + task.minWords;
+    var right = $('task-foot-right');
+    if(n >= task.minWords && !$('compose-submit')){
+      right.innerHTML = '<button class="btn small" id="compose-submit">Share it</button>';
+      $('compose-submit').addEventListener('click', function(){
+        if(!already) applyReward(task.reward);
+        renderHUD();
+        var ex = '<div class="examples"><b>A few ideas, if you want inspiration</b><ul>'+task.examples.map(function(e){ return '<li>'+e+'</li>'; }).join('')+'</ul></div>';
+        $('fb').innerHTML = '<div class="feedback">Nice work — explaining ideas like this in your own words is exactly how you show you understand them.</div>'+ex;
+        ta.disabled = true;
+        $('compose-submit').disabled = true;
+        showContinue(task, mod);
+      });
+    } else if(n < task.minWords && $('compose-submit')){
+      right.innerHTML = '';
+    }
+  });
+}
+
+/* =========================================================
+   CERTIFICATE
+========================================================= */
+function renderCertificate(app){
+  var card = document.createElement('div');
+  card.className = 'card';
+  var dateStr = new Date().toLocaleDateString('en-NZ', {day:'numeric', month:'long', year:'numeric'});
+  var html = '<div class="cert-wrap" id="cert-print">';
+  html += '<div class="cert-kicker">Certificate of Completion</div>';
+  html += '<h2>Money Together</h2>';
+  html += '<div class="cert-name">'+(state.name ? escapeHtml(state.name) : 'A Year 7 student')+'</div>';
+  html += '<p class="cert-sub">has worked through Whose Money, Whose Call?, Weigh It Up, Budgets &amp; Priorities, Sharing &amp; Pooling, and Built to Last — exploring who makes financial decisions, weighing up trade-offs, planning budgets, sharing resources, and thinking about financial sustainability.</p>';
+  if(state.dreamSentence){
+    html += '<div class="dream-echo">🌱 At the start, you said your group would <b>'+state.dreamSentence+'</b>. After exploring budgets, trade-offs and sharing, here’s how this round went.</div>';
+  }
+  html += '<div class="cert-stats"><div class="cell"><div class="lbl">Sustainability</div><div class="val">'+clamp(state.sustain,0,100)+'%</div></div><div class="cell"><div class="lbl">Knowledge stars</div><div class="val">'+state.stars+'/'+STAR_MAX+'</div></div><div class="cell"><div class="lbl">Badges</div><div class="val">'+state.badges.length+'/'+badgeMax()+'</div></div></div>';
+  var br = '<div class="badge-row">';
+  MODULES.forEach(function(m){ if(state.badges.indexOf(m.id)!==-1){ br += '<span class="badge-chip">'+m.icon+' '+m.badge+'</span>'; } });
+  if(state.badges.indexOf('MASTER')!==-1){ br += '<span class="badge-chip">🏆 All Sorted</span>'; }
+  br += '</div>';
+  html += br;
+  html += '<div class="cert-foot">Year 7 Financial Literacy · '+dateStr+'</div>';
+  html += '</div>';
+  html += '<div class="task-foot no-print" style="margin-top:14px;"><button class="btn ghost small" id="back-hub-btn3">← Back to map</button><div style="display:flex;gap:8px;flex-wrap:wrap;"><button class="btn ghost small" id="copy-summary-btn">📋 Copy summary</button><button class="btn small" id="print-btn">🖨️ Print / save certificate</button></div></div>';
+  card.innerHTML = html;
+  app.appendChild(card);
+  $('back-hub-btn3').addEventListener('click', function(){ state.screen='hub'; renderApp(); });
+  $('print-btn').addEventListener('click', function(){ window.print(); });
+  $('copy-summary-btn').addEventListener('click', function(){ copySummaryToClipboard(); });
+}
+
+/* Plain-text recap for a teacher to paste into notes, an email, or a gradebook. */
+function buildSummaryText(){
+  var dateStr = new Date().toLocaleDateString('en-NZ', {day:'numeric', month:'long', year:'numeric'});
+  var lines = [];
+  lines.push('Money Together — Year 7 Financial Literacy');
+  lines.push('Student: ' + (state.name || '(not entered)'));
+  lines.push('Date: ' + dateStr);
+  lines.push('');
+  if(state.dreamSentence){ lines.push('Started by saying their group would ' + state.dreamSentence + '.'); lines.push(''); }
+  lines.push('Sustainability: ' + clamp(state.sustain,0,100) + '%');
+  lines.push('Knowledge stars: ' + state.stars + '/' + STAR_MAX);
+  lines.push('Badges: ' + state.badges.length + '/' + badgeMax());
+  var badgeNames = [];
+  MODULES.forEach(function(m){ if(state.badges.indexOf(m.id)!==-1) badgeNames.push(m.badge); });
+  if(state.badges.indexOf('MASTER')!==-1) badgeNames.push('All Sorted');
+  lines.push('Badges earned: ' + (badgeNames.length ? badgeNames.join(', ') : 'none yet'));
+  lines.push('Tasks completed: ' + totalDoneCount() + '/' + totalTaskCount());
+  return lines.join('\n');
+}
+
+function copySummaryToClipboard(){
+  var text = buildSummaryText();
+  function done(ok){ toast(ok ? '📋 Summary copied to clipboard!' : '⚠️ Couldn’t copy automatically — select the text below and copy it manually.'); }
+  function fallbackCopy(){
+    var ok = false;
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.focus(); ta.select();
+    try{ ok = document.execCommand('copy'); }catch(e){ ok = false; }
+    document.body.removeChild(ta);
+    if(!ok) showManualCopyBox(text);
+    done(ok);
+  }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){ done(true); }).catch(fallbackCopy);
+  } else {
+    fallbackCopy();
+  }
+}
+
+function showManualCopyBox(text){
+  if($('manual-copy-box')) return;
+  var box = document.createElement('textarea');
+  box.id = 'manual-copy-box';
+  box.className = 'compose-box no-print';
+  box.style.marginTop = '10px';
+  box.value = text;
+  var card = document.querySelector('#cert-print').parentElement;
+  card.insertBefore(box, document.querySelector('.task-foot'));
+  box.focus(); box.select();
+}
+
+/* =========================================================
+   BOOT
+========================================================= */
+function syncTheme(){
+  var t = null;
+  try{ t = localStorage.getItem('moneytogether_theme'); }catch(e){}
+  if(t) document.documentElement.setAttribute('data-theme', t);
+}
+document.addEventListener('DOMContentLoaded', function(){
+  syncTheme();
+  $('theme-btn').addEventListener('click', function(){
+    var cur = document.documentElement.getAttribute('data-theme');
+    var next = cur === 'dark' ? 'light' : (cur === 'light' ? null : 'dark');
+    if(next) document.documentElement.setAttribute('data-theme', next);
+    else document.documentElement.removeAttribute('data-theme');
+    try{ localStorage.setItem('moneytogether_theme', next || ''); }catch(e){}
+  });
+  $('restart-btn').addEventListener('click', function(){
+    if(confirm('Start over from the beginning? This clears your progress on this device.')){
+      state = defaultState();
+      save();
+      renderApp();
+    }
+  });
+  $('glossary-btn').addEventListener('click', function(){ toggleGlossary(); });
+  renderApp();
+});
+
+/* Reference card — reuses the term/definition pairs already written for the b1 match task, so there's no new content to maintain. */
+function toggleGlossary(){
+  var panel = $('glossary-panel');
+  var willShow = panel.hasAttribute('hidden');
+  if(willShow){
+    var terms = TASKS.B[0].pairs; /* b1: Safe/Relevant/Impartial information, and Trade-off */
+    var html = '<h3>📖 Quick reference</h3><div class="glossary-cards">';
+    terms.forEach(function(t){ html += '<div class="glossary-card"><div class="gc-term">'+t.term+'</div><div class="gc-def">'+t.def+'</div></div>'; });
+    html += '</div><button class="btn ghost small" id="glossary-close-btn" style="align-self:flex-start;">Close</button>';
+    panel.innerHTML = html;
+    panel.removeAttribute('hidden');
+    $('glossary-close-btn').addEventListener('click', toggleGlossary);
+  } else {
+    panel.setAttribute('hidden', '');
+    panel.innerHTML = '';
+  }
+}
+</script>
