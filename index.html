@@ -266,6 +266,19 @@
   .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,10px);background:var(--ink);color:var(--paper);border-radius:6px;padding:9px 16px;font-size:13.5px;opacity:0;transition:opacity .25s ease, transform .25s ease;pointer-events:none;z-index:60;box-shadow:0 6px 18px var(--shadow);max-width:90vw;text-align:center;}
   .toast.show{opacity:1;transform:translate(-50%,0);}
 
+  .legal{margin-top:10px;border-top:1.5px solid var(--paper-3);padding:14px 4px 0;font-size:11.5px;line-height:1.6;color:var(--ink-mute);}
+  .legal summary{cursor:pointer;font-weight:700;font-size:12px;color:var(--ink);padding:2px 0 8px;list-style-position:inside;}
+  .legal summary .legal-toggle{color:var(--navy);text-decoration:underline;text-underline-offset:2px;font-weight:600;}
+  .legal:not([open]) summary{padding-bottom:0;}
+  .legal p{margin:0 0 8px;}
+  .legal b{color:var(--ink);}
+  .legal-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:6px 0 10px;}
+  @media (max-width:640px){ .legal-cols{grid-template-columns:1fr;} }
+  .legal-cols ul{margin:0;padding-left:18px;}
+  .legal-lbl{font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:800;margin-bottom:3px;}
+  .legal-lbl.ok{color:var(--good);}
+  .legal-lbl.no{color:var(--wine);}
+
   @media print{
     body *{visibility:hidden;}
     #cert-print, #cert-print *{visibility:visible;}
@@ -296,6 +309,31 @@
   <div class="hud" id="hud"></div>
 
   <div id="app"></div>
+
+  <details class="legal no-print" id="legal">
+    <summary>© 2026 David Kennedy · All rights reserved · <span class="legal-toggle">Licence &amp; copyright</span></summary>
+    <p>This resource is protected by copyright and is licensed, not sold. Your purchase is a <b>whole-school licence</b>: any teacher at the <b>purchasing school</b> may use it with their own classes.</p>
+    <div class="legal-cols">
+      <div>
+        <div class="legal-lbl ok">✔ You may</div>
+        <ul>
+          <li>Use it with students you teach</li>
+          <li>Share it with other teachers at your school, through your school's internal systems</li>
+          <li>Share it with your students through your school's password-protected platforms (e.g. Google Classroom, Teams, Hāpara or your school LMS)</li>
+          <li>Print certificates and summaries for your class</li>
+        </ul>
+      </div>
+      <div>
+        <div class="legal-lbl no">✘ You may not</div>
+        <ul>
+          <li>Share it with anyone outside your school's domain, including teachers at other schools, even within a Kāhui Ako or school group</li>
+          <li>Post it on a public website, blog, or open shared drive or link</li>
+          <li>Copy, edit, resell or redistribute it, in whole or in part, or claim it as your own</li>
+        </ul>
+      </div>
+    </div>
+    <p>Each school needs its own licence. Thank you for respecting the time and work that went into making this resource.</p>
+  </details>
 
 </div>
 
@@ -1572,6 +1610,13 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   });
   $('glossary-btn').addEventListener('click', function(){ toggleGlossary(); });
+  /* Licence notice: open on the first visit on this device, collapsed after that. */
+  try{
+    if(!localStorage.getItem('moneytogether_licence_seen')){
+      $('legal').open = true;
+      localStorage.setItem('moneytogether_licence_seen','1');
+    }
+  }catch(e){ $('legal').open = true; }
   renderApp();
 });
 
